@@ -72,7 +72,9 @@
     # pynini is required by WeTextProcessing, use conda to install it as it can be executed on all platform.
     conda install -y -c conda-forge pynini==2.1.5
     pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com
-    
+    ``
+- Install with UV
+    ``` sh
     curl -LsSf https://astral.sh/uv/install.sh | sh
     uv venv
     source .venv/bin/activate
