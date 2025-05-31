@@ -73,6 +73,25 @@
     conda install -y -c conda-forge pynini==2.1.5
     pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com
     
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    uv venv
+    source .venv/bin/activate
+    uv pip install pynini==2.1.5 --index-url https://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
+
+    uv pip install tensorrt-cu12_libs==10.0.1 tensorrt-cu12_bindings==10.0.1 \
+    --index-url https://mirrors.aliyun.com/pypi/simple/ \
+    --extra-index-url https://pypi.nvidia.com \
+    --trusted-host mirrors.aliyun.com \
+    --trusted-host pypi.nvidia.com \
+    --index-strategy unsafe-best-match
+    
+    uv pip install -r requirements.txt \
+    --index-url https://mirrors.aliyun.com/pypi/simple/ \
+    --extra-index-url https://pypi.nvidia.com \
+    --trusted-host mirrors.aliyun.com \
+    --trusted-host pypi.nvidia.com \
+    --index-strategy unsafe-best-match
+    
     # If you encounter sox compatibility issues
     # ubuntu
     sudo apt-get install sox libsox-dev
